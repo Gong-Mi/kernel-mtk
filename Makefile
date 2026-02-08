@@ -5,6 +5,11 @@ SUBLEVEL = 159
 EXTRAVERSION =
 NAME = Curry Ramen
 
+# Force disable WERROR for everything
+KBUILD_WERROR := 0
+KBUILD_CFLAGS += -Wno-error
+KBUILD_CPPFLAGS += -Wno-error
+
 # *DOCUMENTATION*
 # To see a list of typical targets execute "make help"
 # More info can be located in ./README
