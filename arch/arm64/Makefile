@@ -109,6 +109,10 @@ ifeq ($(CONFIG_AS_HAS_ARMV8_5), y)
 asm-arch := armv8.5-a
 endif
 
+# Forcing ARMv9-A optimizations for modern CPUs
+asm-arch := armv9-a+sve+sve2+crypto+rcpc
+KBUILD_CFLAGS += -march=$(asm-arch)
+
 ifdef asm-arch
 KBUILD_CFLAGS	+= -Wa,-march=$(asm-arch) \
 		   -DARM64_ASM_ARCH='"$(asm-arch)"'
